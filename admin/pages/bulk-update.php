@@ -1,7 +1,10 @@
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">
         <div class="card">
-            <h5 class="card-header">Upload CSV File</h5>
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="card-title">Upload CSV File</h5>
+                <a href="/admin/templates/tracking_data.csv" target="_blank">Download Template</a>
+            </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-3">
