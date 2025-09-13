@@ -23,26 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 row.innerHTML = `
                     <td>${item.internal_lrn || ""}</td>
-                    
-                    <td>${item.booking_date || ""}</td>
-                    
-                    <td>${item.pickup_date || ""}</td>                  
+                    <td>${item.booking_date || ""}</td>                  
                     <td>${item.carrier || ""}</td>  
-                    <td>${item.tracking_number || ""}</td>     
-
+                    <td>${item.tracking_number || ""}</td>
                     <td>${item.consignor_name || ""}, ${item.consignor_address || ""}<br/>
                         Ph: ${item.consignor_phone || ""}                        
                     </td>
-
                     <td>${item.consignee_name || ""},  ${item.consignee_address || ""}<br/>
                         Ph: ${item.consignee_phone || ""}
                     </td>
-
-                    <td>${item.expected_delivery_date || ""}</td>
-                    <td>${item.status || ""}</td>
-                    
-                   
-                `;
+                    <td>${item.history_date || ""}</td>
+                    <td>${item.status || ""}</td>`;
 
                 tableBody.appendChild(row);
             });
