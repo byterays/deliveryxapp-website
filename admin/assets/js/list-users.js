@@ -27,8 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <td>${item.email || ""}</td>  
                     <td>${item.username || ""}</td>
                     <td>${item.role || ""}</td>
-                    <td>${item.status || ""}</td>                   
-                    <td>Edit</td>`;
+                    <td>${item.status || ""}</td>`;
 
                 tableBody.appendChild(row);
             });

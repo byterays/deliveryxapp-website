@@ -12,8 +12,7 @@
                                 <th>Email</th>
                                 <th>Login name</th>
                                 <th>Role</th>
-                                <th>Status</th>
-                                <th></th>
+                                <th>Status</th>                                
                             </tr>
                         </thead>
                         <tbody>
