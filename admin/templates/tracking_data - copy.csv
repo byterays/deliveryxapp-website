@@ -1,0 +1,3 @@
+internal_lrn,tracking_number,booking_date,item_qty,expected_delivery_date,delivery_date,carrier,consignor_name,consignor_phone,consignor_email,consignor_address,consignor_pincode,consignee_name,consignee_phone,consignee_email,consignee_address,consignee_pincode,update_date,update_status,update_location
+910515,53598581190,9/11/2025,8,,,FedEx,BAWEJA  INTERNATIONAL,,,,,RAJESWARY MOTORS,9846436686,ranatyre@hotmail.com,Thiruvananthapuram,695002,,in_transit,
+910516,53598579543,9/11/2025,20,,,FedEx,BAWEJA  INTERNATIONAL,,,,,LUCKY TYRES,9620099288,ranatyre@hotmail.com,Bangalore,560051,,in_transit,

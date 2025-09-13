@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /admin/
+
+# Serve existing files/folders normally
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect everything else to app.php
+RewriteRule ^(.*)$ app.php?page=$1 [L,QSA]

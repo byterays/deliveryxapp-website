@@ -1,0 +1,38 @@
+.avatar.avatar-online:after,
+.avatar.avatar-offline:after,
+.avatar.avatar-away:after,
+.avatar.avatar-busy:after {
+    bottom: unset;
+    right: 0;
+    width: 8px;
+    top: 8px;
+}
+
+.layout-navbar.navbar-detached.container-xxl {
+    max-width: unset;
+}
+
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm,
+.container {
+    max-width: unset;
+}
+
+#shipmentsTable.table th,
+#shipmentsTable.table td {
+    text-transform: uppercase;
+    font-size: 0.7rem !important;
+    padding: 3px !important;
+    ;
+}
+
+#shipmentsTable.table th {
+    background-color: #efefef;
+}
+
+#shipmentsTable.table td {
+    vertical-align: top;
+}

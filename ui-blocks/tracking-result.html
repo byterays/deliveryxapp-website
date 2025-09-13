@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-md-7 col-md-offset-1">
+        <div class="text-center">
+            <h3><strong>Tracking Number: </strong><span class="grey">{{shipment.tracking_number}}</span></h3>
+        </div>
+        <div class="wrapper-line ">
+            <ul class="progress">
+                <li>Order Received</li>
+                <li>Picked Up</li>
+                <li>In Transit</li>
+                <li>Out for Delivery</li>
+                <li>Delivered</li>
+            </ul>
+
+            <ul class="timeline custom-tl">
+                {{history}}
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Tracking Information</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td width="140">Docket #: </td>
+                            <td>{{shipment.internal_lrn}}</td>
+                        </tr>
+                        <tr>
+                            <td>Carrier:</td>
+                            <td>{{shipment.carrier}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ref #:</td>
+                            <td>{{shipment.tracking_number}}</td>
+                        </tr>
+                         <tr>
+                            <td>Qty:</td>
+                            <td>{{shipment.item_qty}}</td>
+                        </tr>
+                        <tr>
+                            <td>Status:</td>
+                            <td>{{shipment.status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Consignor</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                        <tr >
+                            <td width="140">Name:</td>
+                            <td>{{consignor.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone:</td>
+                            <td>{{consignor.phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>Pickup Address:</td>
+                            <td>{{consignor.address}}, {{consignor.pincode}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">Consignee</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td width="140">Name:</td>
+                            <td>{{consignee.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone:</td>
+                            <td>{{consignee.phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>Delvery Address:</td>
+                            <td>{{consignee.address}}, , {{Consignee.pincode}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

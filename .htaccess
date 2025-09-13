@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+# Track URL
+RewriteRule ^track/([^/]+)/?$ track.php?tid=$1 [NC,L,QSA]
+
+# Exclude existing files and directories from the rewrite
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^.]+)$ $1.php [NC,L]
