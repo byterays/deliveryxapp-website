@@ -158,6 +158,12 @@ while (($row = fgetcsv($handle)) !== false) {
                     $data['update_status'] ?? null,
                     $data['update_location'] ?? null
                 ]);
+                
+                $stmt = $pdo->prepare("UPDATE shipments SET status = ? WHERE id = ?");
+                $stmt->execute([                   
+                    $data['update_status'] ?? null,
+                    $shipment_id
+                ]);
 
                 $updated++;
             }
@@ -236,22 +242,68 @@ echo json_encode([
     "updated_shipments" => $updated
 ]);
 
-function normalizeDate(?string $dateStr): ?string
+function normalizeDate(?string $dateStr, int $windowDays = 15, string $fallbackDateFormat = "dmyyyy"): ?string
 {
-    if (empty($dateStr))
+    if (empty($dateStr)) {
         return null;
+    }
 
     try {
-        // Try to parse common formats like d/m/Y or m/d/Y
-        $dt = DateTime::createFromFormat('n/j/Y', $dateStr);
-        if ($dt === false) {
-            $dt = DateTime::createFromFormat('d/m/Y', $dateStr);
+        $today = new DateTime();
+
+        // Normalize separators to "/"
+        $dateStr = preg_replace('/[-\s]+/', '/', trim($dateStr));
+
+        // All supported formats
+        $formats = [
+            'Y/m/d',
+            'd/m/Y',
+            'm/d/Y'
+        ];
+
+        $candidates = [];
+        foreach ($formats as $format) {
+            $dt = DateTime::createFromFormat($format, $dateStr);
+            if ($dt !== false) {
+                $diff = abs($today->diff($dt)->days);
+                if ($diff <= $windowDays) {
+                    $candidates[] = $dt;
+                }
+            }
         }
-        if ($dt === false) {
-            $dt = DateTime::createFromFormat('Y-m-d', $dateStr);
+
+        if (!empty($candidates)) {
+            // Pick the closest to today
+            if (count($candidates) > 1) {
+                usort($candidates, function($a, $b) use ($today) {
+                    $diffA = abs($today->getTimestamp() - $a->getTimestamp());
+                    $diffB = abs($today->getTimestamp() - $b->getTimestamp());
+                    return $diffA <=> $diffB;
+                });
+            }
+            return $candidates[0]->format('Y-m-d');
         }
-        return $dt ? $dt->format('Y-m-d') : null;
+
+        // --- Fallback logic ---
+        if (strtolower($fallbackDateFormat) === "dmyyyy") {
+            $fallbacks = ['d/m/Y'];
+        } elseif (strtolower($fallbackDateFormat) === "mdyyyy") {
+            $fallbacks = ['m/d/Y'];
+        } else {
+            $fallbacks = ['d/m/Y']; // default
+        }
+
+        foreach ($fallbacks as $fallback) {
+            $dt = DateTime::createFromFormat($fallback, $dateStr);
+            if ($dt !== false) {
+                return $dt->format('Y-m-d');
+            }
+        }
+
+        return null;
     } catch (Exception $e) {
         return null;
     }
 }
+
+

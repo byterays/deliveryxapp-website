@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 const row = document.createElement("tr");
 
                 row.innerHTML = `
-                    <td>${item.internal_lrn || ""}</td>
+                    <td>${item.tracking_number || ""}</td>
                     <td>${item.booking_date || ""}</td>                  
                     <td>${item.carrier || ""}</td>  
-                    <td>${item.tracking_number || ""}</td>
+                    <td>${item.internal_lrn || ""}</td>                    
                     <td>${item.consignor_name || ""}, ${item.consignor_address || ""}<br/>
                         Ph: ${item.consignor_phone || ""}                        
                     </td>

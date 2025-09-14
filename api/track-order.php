@@ -40,8 +40,7 @@ try {
         JOIN parties p1 ON s.consignor_id = p1.id
         JOIN parties p2 ON s.consignee_id = p2.id
         WHERE s.tracking_number = ? OR s.internal_lrn = ?
-        LIMIT 1
-    ";
+        LIMIT 1";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$q, $q]);
     $shipment = $stmt->fetch(PDO::FETCH_ASSOC);

@@ -7,10 +7,10 @@
                     <table id="shipmentsTable" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>LRN</th>
+                                <th>Tracking #</th>
                                 <th>Booking Date</th>
                                 <th>DEL Channel</th>
-                                <th>Tracking #</th>
+                                <th>Ref #</th>                                
                                 <th>consignor</th>
                                 <th>consignee</th>
                                 <th>Date</th>
