@@ -64,6 +64,7 @@ class App {
             } else {
                 $('#username').text('');
                 $('#email').text('');
+                window.location.href = "/admin";
                 // Optionally, redirect to login if not logged in
                 // window.location.href = '/admin';
             }
