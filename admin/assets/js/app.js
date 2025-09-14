@@ -55,18 +55,25 @@ class App {
         });
     }
 
-     // Populate username & role in the page
+    // Populate username & role in the page
     populateUserInfo() {
         this.getUser((res) => {
             if (res.success && res.user) {
                 $('#username').text(res.user.username || '');
                 $('#email').text(res.user.email || '');
             } else {
-                $('#username').text('');
-                $('#email').text('');
-                window.location.href = "/admin";
+                // $('#username').text('');
+                // $('#email').text('');
+
                 // Optionally, redirect to login if not logged in
-                // window.location.href = '/admin';
+                let path = window.location.pathname;
+                if (path.length > 1) {
+                    path = path.replace(/\/$/, '');
+                }
+
+                if (path !== '/admin') {
+                    window.location.href = '/admin';
+                }
             }
         });
     }
