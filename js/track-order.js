@@ -92,7 +92,7 @@ class TrackingManager {
                             </div>
                             <div data-wow-delay=".6s" class="timeline-panel wow fadeInRight" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInRight;">
                                 <div class="timeline-body">
-                                    ${config.message} <span class="location">${self._capitalize(item.history_location) || ""}</span>
+                                    ${config.message} <span class="location">${self._capitalize(item.history_location.toLowerCase()) || ""}</span>
                                 </div>
                             </div>
                         </li>`;
