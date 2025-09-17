@@ -1,0 +1,78 @@
+:root{
+  /* Exact hex values — change these if you want another exact shade */
+  --portlet-default-header: #2D353C; /* exact */
+  --portlet-default-body:   #ffffff; /* exact */
+  --portlet-info-header:    #004e97; /* exact */
+  --portlet-info-body:      #ffffff; /* exact */
+  --portlet-danger-header:  #8E1E1E; /* exact */
+  --portlet-danger-body:    #ffffff; /* exact */
+
+  --portlet-border: rgba(255,255,255,0.04); /* subtle light border */
+  --portlet-header-text:   #fff; /* main text */
+  --portlet-text:   #666; /* main text */
+  --portlet-muted:  #B0BDC6; /* muted text */
+  --portlet-link:   #5FB3FF; /* link color */
+}
+
+/* Base styling for a portlet look */
+.panel {
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.35) inset;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+/* panel heading */
+.panel > .panel-heading {
+  padding: 12px 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+/* panel body */
+.panel > .panel-body {
+  padding: 15px;
+  background-clip: padding-box;
+  color: var(--portlet-text);
+  background-color: transparent;
+}
+
+/* Default (gray) */
+.panel-default {
+  background-color: var(--portlet-default-body);
+  border: 1px solid var(--portlet-default-header);
+  color: var(--portlet-text);
+}
+.panel-default > .panel-heading {
+  background-color: var(--portlet-default-header);
+  color: var(--portlet-header-text);
+}
+
+/* Info (blue/teal) */
+.panel-info {
+  background-color: var(--portlet-info-body);
+  border: 1px solid var(--portlet-info-header);
+  color: var(--portlet-text);
+}
+.panel-info > .panel-heading {
+  background-color: var(--portlet-info-header);
+  color: var(--portlet-header-text);
+}
+
+/* Danger (red) */
+.panel-danger {
+  background-color: var(--portlet-danger-body);
+  border: 1px solid var(--portlet-danger-header);
+  color: var(--portlet-text);
+}
+.panel-danger > .panel-heading {
+  background-color: var(--portlet-danger-header);
+  color: var(--portlet-header-text);
+}
+
+/* small helpers */
+.panel .panel-title { color: var(--portlet-header-text); margin: 0; font-size: 15px; }
+.panel .text-muted { color: var(--portlet-muted); }
+.panel a { color: var(--portlet-link); text-decoration: none; }
+.panel a:hover { text-decoration: underline; color: #8fd0ff; }
