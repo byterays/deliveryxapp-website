@@ -2097,7 +2097,7 @@ footer .divider-line {
 
 .timeline-body>.location {
 	display: block;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	color: #555;
 }
 
