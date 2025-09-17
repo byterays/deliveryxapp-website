@@ -109,14 +109,6 @@ class TrackingManager {
         });
 
         return html;
-
-
-
-        // return this.trackingTemplate.replace(/{{\s*([\w\.]+)\s*}}/g, (match, key) => {
-        //     // support nested keys like consignor.name
-        //     const value = key.split('.').reduce((obj, k) => (obj && obj[k] !== undefined ? obj[k] : ""), data);
-        //     return value !== null ? value : "";
-        // });
     }
 
     updateProgressBar(status) {
