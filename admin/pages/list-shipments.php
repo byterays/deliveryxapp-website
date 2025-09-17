@@ -15,6 +15,7 @@
                                 <th>consignee</th>
                                 <th>Date</th>
                                 <th>Status</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>

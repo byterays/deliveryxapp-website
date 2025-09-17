@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             result.data.forEach(item => {
                 const row = document.createElement("tr");
+                row.setAttribute("data", item);
 
                 row.innerHTML = `
                     <td>${item.tracking_number || ""}</td>
@@ -33,7 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         Ph: ${item.consignee_phone || ""}
                     </td>
                     <td>${item.history_date || ""}</td>
-                    <td>${item.status || ""}</td>`;
+                    <td>${item.status || ""}</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-icon btn-outline-primary btn-view-history">
+                            <i class="bx bx-show"></i>
+                        </button>
+                    </td>`;
 
                 tableBody.appendChild(row);
             });

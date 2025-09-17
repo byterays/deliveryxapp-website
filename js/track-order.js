@@ -67,6 +67,7 @@ class TrackingManager {
     }
 
     populateTemplate(data) {
+        var self = this;
         if (!this.trackingTemplate) return "";
         // Replace all {{key}} placeholders with corresponding data
 
@@ -91,7 +92,7 @@ class TrackingManager {
                             </div>
                             <div data-wow-delay=".6s" class="timeline-panel wow fadeInRight" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInRight;">
                                 <div class="timeline-body">
-                                    ${config.message} <span class="location">${item.history_location || ""}</span>
+                                    ${config.message} <span class="location">${self._capitalize(item.history_location) || ""}</span>
                                 </div>
                             </div>
                         </li>`;
@@ -184,5 +185,10 @@ class TrackingManager {
 
             this.fetchTracking(trackingId);
         });
+    }
+
+    _capitalize (text) {
+        if (!text) return "";
+        return text.charAt(0).toUpperCase() + text.slice(1);
     }
 }
